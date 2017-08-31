@@ -1,0 +1,67 @@
+<div ng-show="dep.depSuccess" class="h3"> <p aligh="center" style="color:blue"> {{dep.message}} </p> </div>
+<div ng-show="dep.successResult" class="container">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<p align="center" style="color:green;">Amount Transfered : {{dep.amount}} </p>
+</div>
+<div class="col-md-4 col-md-offset-1">
+<p align="center" style="color:blue;">Source Account </p>
+<p align="center">Customer ID :{{dep.customer_ID}}<br></p>
+<p align="center">Account ID :{{dep.account_ID}}<br></p>
+<p align="center">Previous Balance :{{dep.prev_B}}<br></p>
+<p align="center">Current Balance :{{dep.cr_B}}<br></p>
+</div>
+<div class="col-md-4 col-md-offset-1">
+<p align="center" style="color:blue;">Target Account </p>
+<p align="center"> Customer ID :{{dep.t_customer_ID}}<br></p>
+<p align="center">Target Account ID :{{dep.t_account_ID}}<br></p>
+<p align="center">Previous Balance :{{dep.t_prev_B}}<br></p>
+<p align="center">Current Balance :{{dep.t_cr_B}}<br></p>
+</div>
+</div>
+
+
+</div>
+<div class="container" ng-show="dep.depform">
+<p class="col-md-6 col-md-offset-2" align="center" class="h3" text="centre"> Transfer Amount </p>
+
+<div class="col-md-6 col-md-offset-2">
+    <form name="CCForm" ng-submit="dep.submitForm()" novalidate>
+    <!-- Account_ID -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine }">
+    <label for="account_ID">Account ID</label>
+    <input type="number" name="account_ID" ng-model="dep.account_ID" class="form-control" placeholder="Enter Account ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.account_ID.$error.minlength" class="help-block">Account_ID is too short.</p>
+    <p ng-show="CCForm.account_ID.$error.maxlength" class="help-block">Account ID is too long.</p>
+    <p ng-show="CCForm.account_ID.$invalid && !CCForm.SSN_ID.$pristine" class="help-block">Account ID is required.</p>
+   
+  </div>
+  <!-- Target Account_ID -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.t_account_ID.$invalid && !CCForm.t_account_ID.$pristine }">
+    <label for="account_ID">Target Account ID</label>
+    <input type="number" name="t_account_ID" ng-model="dep.t_account_ID" class="form-control" placeholder="Enter Destination Account ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.t_account_ID.$error.minlength" class="help-block">Target Account_ID is too short.</p>
+    <p ng-show="CCForm.t_account_ID.$error.maxlength" class="help-block">Target Account ID is too long.</p>
+    <p ng-show="CCForm.t_account_ID.$invalid && !CCForm.SSN_ID.$pristine" class="help-block">Target Account ID is required.</p>
+   
+  </div>
+  
+  <!-- Amount -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.amount.$invalid && !CCForm.amount.$pristine }">
+    <label for="amount">Amount</label>
+    <input type="number" name="amount" ng-model="dep.amount" class="form-control" placeholder="Enter Amount" required>
+    <p ng-show="CCForm.account_ID.$invalid && !CCForm.SSN_ID.$pristine" class="help-block">Account ID is required.</p>
+   
+  </div>
+  
+  
+ 
+   <button   type="submit" class="btn btn-primary" ng-disabled="CCForm.$invalid">Transfer</button>
+  <button type="reset" class="btn btn-primary">Reset Fields</button>
+  <div ng-show="dep.depositing"><img alt="Transfering ...." src="img/loading.gif">Transfering ....</div>
+</form>
+
+</div>
+
+	
+</div>

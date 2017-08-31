@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+/*sidebar */
+#sidebar-wrapper{
+	z-index: 1;
+	position: fixed-top;
+	height: 100%;
+	overflow-y: hidden;
+	background: #2C3E50;
+	opacity: 1;
+	padding: 0px;
+	padding-bottom: 70px;
+	width: 270px;
+	margin-top: 0px;
+	margin-bottom:70px;
+	margin-top: 0px;
+	padding-top: 0px;
+	
+
+}
+.sidebar-nav{
+	padding: 0;
+	list-style: none;
+
+}
+.sidebar-nav li{
+	text-indent: 20px;
+	line-height: 40px;
+}
+.sidebar-nav li a{
+	display: block;
+	text-decoration: none;
+	color: #ddd; 
+}
+.sidebar-nav li a:hover{
+	background: #16A085;
+}
+

@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable=no>
+  <title>ABC BANK</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/sidebar2.css"/>
+
+</head>
+<body>
+    <!--Routing-->
+    <div class="row fixed">
+    <div class="col-md-12">
+    <img src="img/Bank2.jpg" class="img img-responsive">
+      
+    </div>
+    </div>
+    <div class="row">
+  <!-- show admin navbar starts -->
+<!-- Start of Navigation Bar-->
+    <nav class="navbar navbar-inverse navbar-static-top no-margin fixed" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-knit-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+      
+          <a class="navbar-brand" id="menu-toggle1" href="#"><span class="glyphicon glyphicon-list"></span></a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right" id="bs-knit-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a ><span class="glyphicon glyphicon-home" style="color: #fff;"></span> Executive Login</a></li>
+            <li><a href="gallery.jsp"><span class="glyphicon glyphicon-unchecked" style="color: #fff;"></span> Gallery</a></li>
+            <li><a href="about.jsp"><span class="glyphicon glyphicon-text-background" style="color: #fff;"></span> About</a></li>
+            
+            <li><a href="#signup" data-toggle="modal"><span class="glyphicon glyphicon-user" style="color: #fff;"></span> Sign Up</a></li>
+            <li><a href="studen_login.jsp" ><span class="glyphicon glyphicon-log-in" style="color: #fff;"></span> Login</a></li>
+            
+              </ul>
+          </div>
+
+    </nav>
+    <!-- End of Navigation Bar -->
+  <!-- show admin navbar ends -->
+    </div>
+ <div class="row">
+  <div class="col-md-3">
+    <div id="sidebar-wrapper">
+    
+      <!--sidebar starts-->
+      <ul class="sidebar-nav">
+        <li><a href="#createCust">Create Customer</a></li>
+        <li><a href="#createAcc">Create Account</a></li>
+        <li><a href="#updateCust">Update Customer</a></li>
+        <li><a href="#deleteCust">Delete Customer</a></li>
+        <li><a href="#deleteAcc">Delete Account</a></li>
+        <li><a href="#viewCust">View Customer</a></li>
+        <li><a href="#viewAcc">ViewAccount</a></li>
+      </ul>
+
+      <!--sidebar ends-->
+    </div>
+   </div>
+
+<div class="col-md-9">
+
+  <div ng-app="mainApp">
+  <div id="page-content-wrapper">
+      <ng-view></ng-view>
+  </div>
+  </div>
+ </div>
+
+</div>
+
+</div>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/3.2.1-jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+ 
+    
+    <script type="text/javascript" src="js/angular-material.min.js"></script>
+    
+    
+    <script type="text/javascript" src="js/route.js"></script>
+    <script type="text/javascript" src="js/controllers/CreateCustomerController.js"></script>
+    <script type="text/javascript" src="js/controllers/CreateAccountController.js"></script>
+    <script type="text/javascript" src="js/controllers/UpdateCustomerController.js"></script>
+    <script type="text/javascript" src="js/controllers/DeleteCustomerController.js"></script>
+    <script type="text/javascript" src="js/controllers/DeleteAccountController.js"></script>
+</body>
+</html>

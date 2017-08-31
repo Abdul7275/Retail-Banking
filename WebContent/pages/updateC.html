@@ -1,0 +1,68 @@
+<div class="col-md-10">
+<div ng-show="cust.fetchresult" >
+<p class="col-md-10" align="center" class="h4" style="color:green"> Enter SSN ID or Customer ID of customer to update </p>
+<div class="col-md-10" ng-show="cust.fetching"> Fetching Details...</div>
+<div class="col-md-10" ng-show="cust.failFetching">Failed Fetching Result.</div>
+<div class="col-md-10" ng-show="cust.noRecord">No Records Found for this detail please try with valid one.</div>
+<form class="col-md-8 col-md-offset-2">
+    <div class="form-group">
+    <label for="SSN_ID">SSN ID</label>
+    <input type="text" ng-model="cust.SSN_ID" class="form-control" id="SSN_ID" size="6" placeholder="Enter SSN_ID">
+  </div>
+  <div class="form-group">
+    <label for="customer_ID">Customer ID</label>
+    <input type="text" ng-model="cust.customer_ID" class="form-control" id="Customer_ID" placeholder="Customer ID">
+  </div>
+    <button type="button" class="btn btn-success" ng-click="cust.fetchResult()" class="btn btn-primary" >Submit</button>
+   
+</form>
+</div>
+<div ng-show="cust.updatedSuccess"> <p aligh="center" style="color:blue"> {{cust.updateM}} </p> </div>
+<div class="container" ng-show="cust.updateresult">
+<p align="center" class="h3" text="centre"> Update Customer </p>
+<div ng-show="cust.failUpdating">Failed Updating</div>
+<div class="col-md-8 col-md-offset-2">
+    <form >
+  <div class="form-group">
+    <label for="SSN_ID">SSN ID</label>
+    <input type="text" ng-model="cust.SSN_ID" class="form-control disable" id="SSN_ID" ng-readonly="true">
+  </div>
+  <div class="form-group">
+    <label for="Customer_ID">Customer ID</label>
+    <input type="text" ng-model="cust.customer_ID" class="form-control" id="Customer_ID" size="6" ng-readonly="true">
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" ng-model="cust.name" class="form-control" name="name" id="name" required>
+    <span ng-show="cust.name.$error.required">Username is required.</span>
+  </div>
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input type="text" class="form-control" ng-model="cust.age" id="age" placeholder="Enter Age" required>
+  </div>
+
+  <div class="form-group">
+    <label for="add_L1">Address Line 1</label>
+    <input type="text" class="form-control" ng-model="cust.adl1" id="add_L1" placeholder="Enter Address Line 1" required>
+  </div>
+  <div class="form-group">
+    <label for="add_L2">Address Line 2</label>
+    <input type="text" class="form-control" name="add_L2" ng-model="cust.adl2" placeholder="Enter Address Line 2">
+  </div>  
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" class="form-control" name="city" ng-model="cust.city" placeholder="Enter City" required>
+  </div>
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type="text" class="form-control" name="state" ng-model="cust.state" placeholder="Enter State" required>
+  </div>
+  <button type="submit" ng-click="cust.updateCustomer()"">Update Customer</button>
+  <div ng-show="cust.updating"> Updating Customer ....</div>
+</form>
+</div>
+	
+</div>
+	
+</div>

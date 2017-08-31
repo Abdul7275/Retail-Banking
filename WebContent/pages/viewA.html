@@ -1,0 +1,54 @@
+<div ng-show="dep.depSuccess"> <p aligh="center" style="color:blue"> {{dep.message}} </p> </div>
+<div ng-show="dep.showdata">
+<table class="table table-hover">
+<thead>
+<tr> 
+  <th>CUSTOMER ID</th>
+  <th>Account ID</th>
+  <th>Account Type</th>
+  <th>Balance</th>
+  <th>Delete Status</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="account in dep.getaccounts ">
+<td>{{account.customer_id}}</td>
+<td>{{account.account_id}}</td>
+<td>{{account.account_type}}</td>
+<td>{{account.balance}}</td>
+<td>{{account.delete_flag}}</td>
+
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="container" ng-show="dep.depform">
+<p class="col-md-6 col-md-offset-2" align="center" class="h3" text="centre"> View Account Details </p>
+
+<div class="col-md-6 col-md-offset-2">
+    <form name="CCForm" ng-submit="dep.submitForm()" novalidate>
+   
+   <!-- Account ID -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine }">
+    <label for="customer_ID">Customer ID</label>
+    <input type="number" name="account_ID" ng-model="dep.account_ID" class="form-control" placeholder="Enter Account ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.account_ID.$error.minlength" class="help-block">Account ID is too short.</p>
+    <p ng-show="CCForm.account_ID.$error.maxlength" class="help-block">Account ID is too long.</p>
+    <p ng-show="CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine" class="help-block">Account ID is required.</p>
+   
+  </div>
+  
+ 
+  
+  
+ 
+   <button   type="submit" class="btn btn-primary" ng-disable="CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine && CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine">Get Account</button>
+  <button type="reset" class="btn btn-primary">Reset Fields</button>
+  <div ng-show="dep.depositing"><img alt="Creating Customer ...." src="img/loading.gif>Getting ....</div>
+</form>
+
+</div>
+
+	
+</div>

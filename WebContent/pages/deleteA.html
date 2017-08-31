@@ -1,0 +1,76 @@
+<div class="container">
+
+<div ng-show="acc.deletedSuccess"> <p aligh="center" style="color:blue"> {{acc.deleteM}} </p> </div>
+<div ng-show="acc.fetchresult" >
+<p align="center" class="h4" style="color:green"> Enter Customer ID and Account Type both or Account ID of Account to Delete </p>
+<div ng-show="acc.fetching"><img src="img/loading.gif"> Fetching..</div>
+<div ng-show="acc.failFetching">Failed Fetching Result.</div>
+<div ng-show="acc.noRecord">No Records Found for this detail please try with valid one.</div>
+<form class="col-md-8 col-md-offset-2">
+  <div class="form-group">
+    <label for="Customer_ID">Customer ID</label>
+    <input type="text" ng-model="acc.customer_ID" class="form-control" id="Cust_ID" placeholder="Enter Customer ID">
+  </div>
+  <div class="form-group">
+  <label for="Account_Type">Select Account Type</label>
+  <select class="form-control" id="Account_Type" name="gender" ng-model="acc.account_Type">
+    <option value="S">Saving</option>
+    <option value="C">Current</option>
+  </select>
+</div>
+  <div class="form-group">
+    <label for="customer_ID">Account ID</label>
+    <input type="text" ng-model="acc.account_ID" class="form-control" id="Customer_ID" placeholder="Account ID">
+  </div>
+    <button type="button" class="btn btn-success" ng-click="acc.fetchResult()" class="btn btn-primary" >Submit</button>
+   
+</form>
+</div>
+<div ng-show="acc.deletedSuccess"> <p aligh="center" style="color:blue"> {{cust.deleteM}} </p> </div>
+<div class="container" ng-show="acc.deleteresult">
+<p align="center" class="h3" text="centre"> Delete Account </p>
+<div ng-show="acc.failDeleting">Failed Deleting..</div>
+<div ng-show="acc.deleting"><img src="img/loading.gif"> Deleting..</div>
+<!-- show details of customer to be deleted -->
+<div class="row">
+<div class="col-md-6">
+Customer ID: {{acc.customer_ID}}<hr>
+Account ID: {{acc.account_ID}}
+</div>
+<div class="col-md-6">
+Balance: {{acc.balance}}<hr>
+Creation Date: {{acc.date | date}}
+</div>
+</div>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Delete</button>
+
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Confirm</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are You sure to delete Account!!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" ng-click="acc.deleteAccount()" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      <!-- Modal content ends here -->
+    </div>
+  </div>
+  <!-- Modal Ends here -->
+	
+</div>
+	
+</div>

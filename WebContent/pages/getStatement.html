@@ -1,0 +1,89 @@
+<div ng-show="dep.depSuccess"> <p aligh="center" style="color:blue"> {{dep.message}} </p> </div>
+<div ng-show="dep.showdata">
+<table class="table table-hover">
+<thead>
+<tr> 
+  <th>Date</th>
+  <th>Account ID</th>
+  <th>Credit/Debit</th>
+  <th>Amount</th>
+  <th>Cr.Balance</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="account in dep.getaccounts ">
+<td>{{account.tr_date | date}}</td>
+<td>{{account.account_id}}</td>
+<td>{{account.c_d}}</td>
+<td>{{account.amount}}</td>
+<td>{{account.cr_balance}}</td>
+<td>{{account.description}}</td>
+
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="container" ng-show="dep.depform">
+<p class="col-md-6 col-md-offset-2" align="center" class="h3" text="centre"> Get Statement </p>
+
+<div class="col-md-6 col-md-offset-2">
+    <form name="CCForm">
+   <div class="form-group" ng-class="{ 'has-error' : CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine }">
+    <label for="account_ID">Account ID</label>
+    <input type="number" name="account_ID" ng-model="dep.account_ID" class="form-control" placeholder="Enter Account ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.account_ID.$error.minlength" class="help-block">Account_ID is too short.</p>
+    <p ng-show="CCForm.account_ID.$error.maxlength" class="help-block">Account ID is too long.</p>
+    <p ng-show="CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine" class="help-block">Account ID is required.</p>
+   
+  </div>
+    <div class="form-group">
+    <label>Choose Method</label>
+    <input type="radio" name="method" ng-click="dep.showAccount()" ng-model="dep.method" value="account_ID" checked>By No of Transaction
+    <input type="radio" name="method" ng-click="dep.showCustomer()" ng-model="dep.method" value="customer_ID">By Date Range
+    </div>
+   
+    <!-- Transaction no -->
+  <div class="form-group"  ng-show="dep.account">
+    <label for="account_ID">Choose No of Transactions</label>
+    <select class="form-control" id="Account_Type" name="trno" ng-model="dep.trno">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+   
+  </div>
+   <!-- Customer ID -->
+  <div class="form-group"  ng-show="dep.customer" >
+    <label for="customer_ID">From Date</label>
+    <input type="date" name="start" ng-model="dep.startdate" class="form-control">
+    
+  </div>
+  <div class="form-group"  ng-show="dep.customer" >
+    <label for="customer_ID">To Date</label>
+    <input type="date" name="end" ng-model="dep.enddate" class="form-control" >
+    
+  </div>
+  
+  
+ 
+  
+  
+ 
+   <button   type="submit" class="btn btn-primary" ng-click="dep.submitForm()" >Get Statement</button>
+  <button type="reset" class="btn btn-primary">Reset Fields</button>
+  <div ng-show="dep.depositing"><img alt="Creating Customer ...." src="img/loading.gif>Getting ....</div>
+</form>
+
+</div>
+
+	
+</div>

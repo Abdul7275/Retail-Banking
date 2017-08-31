@@ -1,0 +1,67 @@
+<div ng-show="dep.depSuccess"> <p aligh="center" style="color:blue"> {{dep.message}} </p> </div>
+<div ng-show="dep.noData"> <p aligh="center" style="color:blue"> No data found for this input. </p> </div>
+<div ng-show="dep.showdata">
+<table class="table table-hover">
+<thead>
+<tr> 
+  <th>CUSTOMER ID</th>
+  <th>Account ID</th>
+  <th>Account Type</th>
+  <th>Balance</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="account in dep.getaccounts ">
+<td>{{account.customer_id}}</td>
+<td>{{account.account_id}}</td>
+<td>{{account.account_type}}</td>
+<td>{{account.balance}}</td>
+
+</tr>
+</tbody>
+</table>
+
+</div>
+<div class="container" ng-show="dep.depform">
+<p class="col-md-6 col-md-offset-2" align="center" class="h3" text="centre"> Get Account </p>
+
+<div class="col-md-6 col-md-offset-2">
+    <form name="CCForm" ng-submit="dep.submitForm()" novalidate>
+    <div class="form-group">
+    <label>Choose Method</label>
+    <input type="radio" name="method" ng-click="dep.showAccount()" ng-model="dep.method" value="account_ID" checked>By Account ID
+    <input type="radio" name="method" ng-click="dep.showCustomer()" ng-model="dep.method" value="customer_ID">By Customer ID
+    </div>
+   
+    <!-- SSN_ID -->
+  <div class="form-group"  ng-show="dep.account" ng-class="{ 'has-error' : CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine }">
+    <label for="account_ID">Account ID</label>
+    <input type="number" name="account_ID" ng-model="dep.account_ID" class="form-control" placeholder="Enter Account ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.account_ID.$error.minlength" class="help-block">Account_ID is too short.</p>
+    <p ng-show="CCForm.account_ID.$error.maxlength" class="help-block">Account ID is too long.</p>
+    <p ng-show="CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine" class="help-block">Account ID is required.</p>
+   
+  </div>
+   <!-- Customer ID -->
+  <div class="form-group"  ng-show="dep.customer" ng-class="{ 'has-error' : CCForm.customer_ID.$invalid && !CCForm.customer_ID.$pristine }">
+    <label for="customer_ID">Customer ID</label>
+    <input type="number" name="customer_ID" ng-model="dep.customer_ID" class="form-control" placeholder="Enter Customer ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.customer_ID.$error.minlength" class="help-block">Customer ID is too short.</p>
+    <p ng-show="CCForm.customer_ID.$error.maxlength" class="help-block">Customer ID is too long.</p>
+    <p ng-show="CCForm.customer_ID.$invalid && !CCForm.customer_ID.$pristine" class="help-block">Customer ID is required.</p>
+   
+  </div>
+  
+ 
+  
+  
+ 
+   <button   type="submit" class="btn btn-primary" ng-disable="CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine && CCForm.account_ID.$invalid && !CCForm.account_ID.$pristine">Get Account</button>
+  <button type="reset" class="btn btn-primary">Reset Fields</button>
+  <div ng-show="dep.depositing"><img alt="Creating Customer ...." src="img/loading.gif>Getting ....</div>
+</form>
+
+</div>
+
+	
+</div>

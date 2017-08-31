@@ -1,0 +1,61 @@
+<div ng-show="cust.su"> <p aligh="center" style="color:blue"> {{cust.message}} </p> </div>
+<div class="container" ng-show="cust.form1">
+<p class="col-md-6 col-md-offset-2" align="center" class="h3" text="centre"> Create new Customer </p>
+
+<div class="col-md-6 col-md-offset-2">
+    <form name="CCForm" ng-submit="cust.submitForm1()" novalidate>
+    <!-- SSN_ID -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.SSN_ID.$invalid && !CCForm.SSN_ID.$pristine }">
+    <label for="SSN_ID">SSN ID</label>
+    <input type="number" name="SSN_ID" ng-model="cust.SSN_ID" class="form-control" placeholder="Enter SN_ID" ng-minlength="9" ng-maxlength="9" size="9" required>
+    <p ng-show="CCForm.SSN_ID.$error.minlength" class="help-block">SSN_ID is too short.</p>
+    <p ng-show="CCForm.SSN_ID.$error.maxlength" class="help-block">SSN_ID is too long.</p>
+    <p ng-show="CCForm.SSN_ID.$invalid && !CCForm.SSN_ID.$pristine" class="help-block">SSN_ID is required.</p>
+    <span ng-show="CCForm.cust.SSN_ID.$error.integer">The value is not a valid integer!</span>
+  </div>
+  <!-- Name -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.name.$invalid && !CCForm.name.$pristine }">
+    <label for="name">Name</label>
+    <input type="text" ng-model="cust.name" class="form-control" name="name" id="name" size="20" placeholder="Enter Name" required >
+    <p ng-show="CCForm.name.$invalid && !CCForm.name.$pristine" class="help-block">Name is required.</p>
+  </div>
+  <!-- Age -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.age.$invalid && !CCForm.age.$pristine }">
+    <label for="age">Age</label>
+    <input type="number" class="form-control" ng-model="cust.age" name="age" placeholder="Enter Age" required ng-minlength="1" ng-maxlength="3" size="3" min="10" max="100">
+    <p ng-show="CCForm.age.$invalid && !CCForm.age.$pristine" class="help-block">Age is required.</p>
+    <p ng-show="CCForm.age.$error.min" class="help-block">Age is below minimum age.</p>
+    <p ng-show="CCForm.age.$error.max" class="help-block">Age is above maximum age.</p>
+  </div>
+<!-- AD L 2 -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.adl1.$invalid && !CCForm.adl1.$pristine }">
+    <label for="adl1">Address Line 1</label>
+    <input type="text" class="form-control" ng-model="cust.adl1" name="adl1" placeholder="Enter Address Line 1" required>
+    <p ng-show="CCForm.adl1.$invalid && !CCForm.adl1.$pristine" class="help-block">Address Line 1 is required.</p>
+  </div>
+  <!-- Address Line 2 -->
+  <div class="form-group">
+    <label for="add_L2">Address Line 2</label>
+    <input type="text" class="form-control" name="add_L2" ng-model="cust.adl2" placeholder="Enter Address Line 2">
+  </div>  
+  <!-- City -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.city.$invalid && !CCForm.city.$pristine }">
+    <label for="city">City</label>
+    <input type="text" class="form-control" name="city" ng-model="cust.city" placeholder="Enter City" required>
+    <p ng-show="CCForm.city.$invalid && !CCForm.city.$pristine" class="help-block">City is required.</p>
+  </div>
+  <!-- State -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.state.$invalid && !CCForm.state.$pristine }">
+    <label for="state">State</label>
+    <input type="text" class="form-control" name="state" ng-model="cust.state" placeholder="Enter State" required>
+    <p ng-show="CCForm.state.$invalid && !CCForm.state.$pristine" class="help-block">State is required.</p>
+  </div>
+  <button   type="submit" class="btn btn-primary" ng-disabled="CCForm.$invalid">Create Customer</button>
+  <button type="reset" class="btn btn-primary">Reset Fields</button>
+  <div ng-show="cust.creating"><img alt="Creating Customer ...." src="img/loading.gif">Creating Customer ....</div>
+</form>
+
+</div>
+
+	
+</div>

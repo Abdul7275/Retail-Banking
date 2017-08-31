@@ -1,0 +1,78 @@
+/*sidebar */
+#sidebar-wrapper{
+	z-index: 1;
+	position: fixed;
+	width: 0;
+	height: 90%;
+	overflow-y: hidden;
+	background: #2C3E50;
+	opacity: 1;
+	padding: 0px;
+	padding-bottom: 70px;
+	
+
+}
+/* Main content */
+#page-content-wrapper{
+	width: 100%;
+	padding: 10px;
+	background: #ECF0F1;
+	margin-bottom: 0px;
+
+
+}
+/*change the width of the sidebar to display it */
+#wrapper.menuDisplayed #sidebar-wrapper{
+	width: 250px;
+	margin-top: 0px;
+	margin-bottom:70px;
+	margin-top: 0px;
+	padding-top: 0px;
+
+
+}
+/*shift the width of the page to display sidewar so no overlapping */
+#wrapper.menuDisplayed #page-content-wrapper{
+	padding-left: 250px;
+	margin-bottom: 70px;
+}
+.sidebar-nav{
+	padding: 0;
+	list-style: none;
+
+}
+.sidebar-nav li{
+	text-indent: 20px;
+	line-height: 40px;
+}
+.sidebar-nav li a{
+	display: block;
+	text-decoration: none;
+	color: #ddd; 
+}
+.sidebar-nav li a:hover{
+	background: #16A085;
+}
+/* user-menu layout */
+#user-menu{
+	width: 100%;
+	padding: 10px;
+	background: #335BFF;
+
+}
+#wrapper.menuDisplayed #user-menu-display{
+	padding-left: 250px;
+}
+#admin-menu{
+	width: 100%;
+	padding: 0px;
+	background: #336EFF;
+
+}
+iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
